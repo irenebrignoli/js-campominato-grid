@@ -31,117 +31,118 @@ const crazyDom = document.getElementById('crazy');
 
 //Creo i quadratini con cliclo for  
 
-
-if(selectDom.value =="easy"){ //difficoltà 1 => 100 caselle, divise in 10 caselle per 10 righe
-
-  for (let i = 1; i <= 100; i ++){
-  
-    const square = newSquareGenerator('square', 'easy');
-  
-    square.addEventListener('click',
-      function(){
-        this.classList.toggle('clicked');
-        console.log(i);
-      }
-    )
-  
-    gridDOm.append(square);
-  
-    square.innerHTML = `<div>${i}</div>`;
-  
-    playDom.addEventListener('click', //Reset gioco se riclicclo Play
-  
-      function(){
-        square.classList.remove('clicked');
-      }
-    )
-  
-    resetDom.addEventListener('click',   //Reset gioco se clicco Reset
-  
-      function(){
-        square.classList.remove('clicked');
-      }
-    )
-  }
-
-}else if(selectDom.value =='hard'){ //difficoltà 2 => 81 caselle,  9 caselle per 9 righe
-
-  for (let i = 1; i <= 81; i ++){
-  
-    const square = newSquareGenerator('square', 'hard');
-  
-    square.addEventListener('click',
-      function(){
-        this.classList.toggle('clicked');
-        console.log(i);
-      }
-    )
-  
-    gridDOm.append(square);
-  
-    square.innerHTML = `<div>${i}</div>`;
-  
-    playDom.addEventListener('click', //Reset gioco se riclicclo Play
-  
-      function(){
-        square.classList.remove('clicked');
-      }
-    )
-  
-    resetDom.addEventListener('click',   //Reset gioco se clicco Reset
-  
-      function(){
-        square.classList.remove('clicked');
-      }
-    )
-  }
-
-}else if(selectDom.value =='crazy'){ //con difficoltà 3 => 49 caselle,  in 7 caselle per 7 righe
-
-  for (let i = 1; i <= 49; i ++){
-  
-    const square = newSquareGenerator('square', 'crazy');
-  
-    square.addEventListener('click',
-      function(){
-        this.classList.toggle('clicked');
-        console.log(i);
-      }
-    )
-  
-    gridDOm.append(square);
-  
-    square.innerHTML = `<div>${i}</div>`;
-  
-    playDom.addEventListener('click', //Reset gioco se riclicclo Play
-  
-      function(){
-        square.classList.remove('clicked');
-      }
-    )
-  
-    resetDom.addEventListener('click',   //Reset gioco se clicco Reset
-  
-      function(){
-        square.classList.remove('clicked');
-      }
-    )
-  }
-}
-
 playDom.addEventListener('click', //Evento click per la griglia di partenza 
 
   function(){
     gridDOm.classList.add('show');
+
+    if(selectDom.value == 1){ //difficoltà 1 => 100 caselle, divise in 10 caselle per 10 righe
+
+      for (let i = 1; i <= 100; i ++){
+      
+        const square = newSquareGenerator('square', 'easy');
+      
+        square.addEventListener('click',
+          function(){
+            this.classList.toggle('clicked');
+            console.log(i);
+          }
+        )
+      
+        gridDOm.append(square);
+      
+        square.innerHTML = `<div>${i}</div>`;
+      
+        playDom.addEventListener('click', //Reset gioco se riclicclo Play
+      
+          function(){
+            square.classList.remove('clicked');
+          }
+        )
+    
+      }
+    
+    }else if(selectDom.value == 2){ //difficoltà 2 => 81 caselle,  9 caselle per 9 righe
+    
+      for (let i = 1; i <= 81; i ++){
+      
+        const square = newSquareGenerator('square', 'hard');
+      
+        square.addEventListener('click',
+          function(){
+            this.classList.toggle('clicked');
+            console.log(i);
+          }
+        )
+      
+        gridDOm.append(square);
+      
+        square.innerHTML = `<div>${i}</div>`;
+      
+        playDom.addEventListener('click', //Reset gioco se riclicclo Play
+      
+          function(){
+            square.classList.remove('clicked');
+          }
+        )
+      
+        resetDom.addEventListener('click',   //Reset gioco se clicco Reset
+      
+          function(){
+            square.classList.remove('clicked');
+          }
+        )
+      }
+    
+    }else if(selectDom.value == 3){ //con difficoltà 3 => 49 caselle,  in 7 caselle per 7 righe
+    
+      for (let i = 1; i <= 49; i ++){
+      
+        const square = newSquareGenerator('square', 'crazy');
+      
+        square.addEventListener('click',
+          function(){
+            this.classList.toggle('clicked');
+            console.log(i);
+          }
+        )
+      
+        gridDOm.append(square);
+      
+        square.innerHTML = `<div>${i}</div>`;
+      
+        playDom.addEventListener('click', //Reset gioco se riclicclo Play
+      
+          function(){
+            square.classList.remove('clicked');
+          }
+        )
+      
+        resetDom.addEventListener('click',   //Reset gioco se clicco Reset
+      
+          function(){
+            square.classList.remove('clicked');
+          }
+        )
+      }
+    }
   }
 )
 
+resetDom.addEventListener('click',   //Reset gioco se clicco Reset
+      
+  function(){
+    gridDOm.classList.remove('show');
+  }
+)
+
+
 logoDom.addEventListener('click', //Reset griglia
   
-      function(){
-        gridDOm.classList.remove('show');
-      }
-    )
+  function(){
+    gridDOm.classList.remove('show');
+  }
+)
 
 
 
