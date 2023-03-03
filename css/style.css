@@ -6,6 +6,7 @@
 
 body{
   font-family: sans-serif;
+  background-color:beige;
 }
 
 header {
@@ -29,21 +30,25 @@ h1{
   font-size: 24px;
 }
 
-#play{
-  padding: 5px 30px;
+header a:visited{
+  color: #000;
 }
 
-main{
-  width: 100%;
+.btn{
+  padding: 5px 30px;
+  margin-left: 20px;
+}
+
+#container{
   height: 600px;
-  background-color:beige;
+  width: 600px;
+  margin: auto;
   padding-top: 50px;
 }
 
 #grid{
   height: 500px;
   width: 500px;
-  margin: auto;
   flex-wrap: wrap;
   overflow-y: auto;
 }
@@ -75,6 +80,10 @@ footer {
   height: 50px;
   background-color: #fff;
   padding: 20px;
+  position: fixed;
+  width: 100%;
+  left:0;
+  bottom:0;
 }
 
 

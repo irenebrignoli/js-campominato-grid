@@ -17,41 +17,73 @@ Proviamo sempre prima con dei console.log() per capire se stiamo ricevendo i dat
 Le validazioni e i controlli possiamo farli anche in un secondo momento.
 */
 
-//Evento click per la griglia di partenza
+
 
 const playDom = document.getElementById('play');
 
+const resetDom = document.getElementById('reset');
+
+const logoDom = document.getElementById('logoname');
+
 const gridDOm = document.getElementById('grid');
 
-playDom.addEventListener('click',
+playDom.addEventListener('click', //Evento click per la griglia di partenza 
 
   function(){
-    gridDOm.classList.toggle('show');
+    gridDOm.classList.add('show');
   }
 )
+
 
 //Creo i quadratini con cliclo for
 
 for (let i = 1; i <= 100; i ++){
-
-  console.log(i);
   
   const square = newSquareGenerator();
 
   square.addEventListener('click',
     function(){
       this.classList.toggle('clicked');
+      console.log(i);
     }
   )
 
   gridDOm.append(square);
 
   square.innerHTML = `<div>${i}</div>`;
+
+  playDom.addEventListener('click', //Reset gioco se riclicclo Play
+
+    function(){
+      square.classList.remove('clicked');
+    }
+  )
+
+  resetDom.addEventListener('click',   //Reset gioco se clicco Reset
+
+    function(){
+      square.classList.remove('clicked');
+    }
+
+  )
+
+  logoDom.addEventListener('click',
+
+    function(){
+      gridDOm.classList.remove('show');
+    }
+  )
+
 }
 
 
 
 //FUNZIONI
+
+function removeClass(element, classe) {
+  element.classList.remove('classe');
+  return element;
+}
 
 function newSquareGenerator(){
   const element = document.createElement('div');
