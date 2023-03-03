@@ -32,7 +32,9 @@ playDom.addEventListener('click',
 
 //Creo i quadratini con cliclo for
 
-for (let i = 0; i < 100; i ++){
+for (let i = 1; i <= 100; i ++){
+
+  console.log(i);
   
   const square = newSquareGenerator();
 
@@ -43,6 +45,8 @@ for (let i = 0; i < 100; i ++){
   )
 
   gridDOm.append(square);
+
+  square.innerHTML = `<div>${i}</div>`;
 }
 
 

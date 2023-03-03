@@ -35,7 +35,7 @@ h1{
 
 main{
   width: 100%;
-  height: calc(100vh - 120px);
+  height: 600px;
   background-color:beige;
   padding-top: 50px;
 }
@@ -45,6 +45,7 @@ main{
   width: 500px;
   margin: auto;
   flex-wrap: wrap;
+  overflow-y: auto;
 }
 
 .d-none{
@@ -56,9 +57,14 @@ main{
 }
 
 .square{
-  border: #363636 2px solid;
+  border: #505050 2px solid;
   width: calc(100% / 10);
   height: calc(100% / 10);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: #505050;
 }
 
 .square.clicked{
