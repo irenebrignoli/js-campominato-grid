@@ -44,8 +44,15 @@ main{
   height: 500px;
   width: 500px;
   margin: auto;
-  display: flex;
   flex-wrap: wrap;
+}
+
+.d-none{
+  display: none;
+}
+
+.show{
+  display: flex;
 }
 
 .square{

@@ -17,7 +17,20 @@ Proviamo sempre prima con dei console.log() per capire se stiamo ricevendo i dat
 Le validazioni e i controlli possiamo farli anche in un secondo momento.
 */
 
+//Evento click per la griglia di partenza
+
+const playDom = document.getElementById('play');
+
 const gridDOm = document.getElementById('grid');
+
+playDom.addEventListener('click',
+
+  function(){
+    gridDOm.classList.toggle('show');
+  }
+)
+
+//Creo i quadratini con cliclo for
 
 for (let i = 0; i < 100; i ++){
   
