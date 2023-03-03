@@ -1,10 +1,4 @@
 /*
-Consegna
-L’utente clicca su un bottone che genererà una griglia di gioco quadrata.
-Ogni cella ha un numero progressivo, da 1 a 100.
-Ci saranno quindi 10 caselle per ognuna delle 10 righe.
-Quando l’utente clicca su ogni cella, la cella cliccata si colora di azzurro ed emetto un messaggio in console con il numero della cella cliccata.
-
 Bonus
 Aggiungere una select accanto al bottone di generazione, che fornisca una scelta tra tre diversi livelli di difficoltà:
 - con difficoltà 1 => 100 caselle, con un numero compreso tra 1 e 100, divise in 10 caselle per 10 righe;
@@ -28,6 +22,113 @@ const logoDom = document.getElementById('logoname');
 
 const gridDOm = document.getElementById('grid');
 
+const selectDom = document.getElementById('difficulty');
+const easyDom = document.getElementById('easy');
+const hardDom = document.getElementById('hard');
+const crazyDom = document.getElementById('crazy');
+
+
+
+//Creo i quadratini con cliclo for  
+
+
+if(selectDom.value =="easy"){ //difficoltà 1 => 100 caselle, divise in 10 caselle per 10 righe
+
+  for (let i = 1; i <= 100; i ++){
+  
+    const square = newSquareGenerator('square', 'easy');
+  
+    square.addEventListener('click',
+      function(){
+        this.classList.toggle('clicked');
+        console.log(i);
+      }
+    )
+  
+    gridDOm.append(square);
+  
+    square.innerHTML = `<div>${i}</div>`;
+  
+    playDom.addEventListener('click', //Reset gioco se riclicclo Play
+  
+      function(){
+        square.classList.remove('clicked');
+      }
+    )
+  
+    resetDom.addEventListener('click',   //Reset gioco se clicco Reset
+  
+      function(){
+        square.classList.remove('clicked');
+      }
+    )
+  }
+
+}else if(selectDom.value =='hard'){ //difficoltà 2 => 81 caselle,  9 caselle per 9 righe
+
+  for (let i = 1; i <= 81; i ++){
+  
+    const square = newSquareGenerator('square', 'hard');
+  
+    square.addEventListener('click',
+      function(){
+        this.classList.toggle('clicked');
+        console.log(i);
+      }
+    )
+  
+    gridDOm.append(square);
+  
+    square.innerHTML = `<div>${i}</div>`;
+  
+    playDom.addEventListener('click', //Reset gioco se riclicclo Play
+  
+      function(){
+        square.classList.remove('clicked');
+      }
+    )
+  
+    resetDom.addEventListener('click',   //Reset gioco se clicco Reset
+  
+      function(){
+        square.classList.remove('clicked');
+      }
+    )
+  }
+
+}else if(selectDom.value =='crazy'){ //con difficoltà 3 => 49 caselle,  in 7 caselle per 7 righe
+
+  for (let i = 1; i <= 49; i ++){
+  
+    const square = newSquareGenerator('square', 'crazy');
+  
+    square.addEventListener('click',
+      function(){
+        this.classList.toggle('clicked');
+        console.log(i);
+      }
+    )
+  
+    gridDOm.append(square);
+  
+    square.innerHTML = `<div>${i}</div>`;
+  
+    playDom.addEventListener('click', //Reset gioco se riclicclo Play
+  
+      function(){
+        square.classList.remove('clicked');
+      }
+    )
+  
+    resetDom.addEventListener('click',   //Reset gioco se clicco Reset
+  
+      function(){
+        square.classList.remove('clicked');
+      }
+    )
+  }
+}
+
 playDom.addEventListener('click', //Evento click per la griglia di partenza 
 
   function(){
@@ -35,59 +136,36 @@ playDom.addEventListener('click', //Evento click per la griglia di partenza
   }
 )
 
-
-//Creo i quadratini con cliclo for
-
-for (let i = 1; i <= 100; i ++){
+logoDom.addEventListener('click', //Reset griglia
   
-  const square = newSquareGenerator100();
+      function(){
+        gridDOm.classList.remove('show');
+      }
+    )
 
-  square.addEventListener('click',
-    function(){
-      this.classList.toggle('clicked');
-      console.log(i);
-    }
-  )
 
-  gridDOm.append(square);
 
-  square.innerHTML = `<div>${i}</div>`;
 
-  playDom.addEventListener('click', //Reset gioco se riclicclo Play
-
-    function(){
-      square.classList.remove('clicked');
-    }
-  )
-
-  resetDom.addEventListener('click',   //Reset gioco se clicco Reset
-
-    function(){
-      square.classList.remove('clicked');
-    }
-
-  )
-
-  logoDom.addEventListener('click',
-
-    function(){
-      gridDOm.classList.remove('show');
-    }
-  )
-
-}
 
 
 
 //FUNZIONI
 
-function removeClass(element, classe) {
-  element.classList.remove('classe');
+// function removeClass(element, classe) {
+//   element.classList.remove(classe);
+//   return element;
+// }
+
+
+function newSquareGenerator(classe, classe2){
+  const element = document.createElement('div');
+  element.classList.add(classe);
+  element.classList.add(classe2);
   return element;
 }
 
-function newSquareGenerator100(){
-  const element = document.createElement('div');
-  element.classList.add('square');
-  return element;
-}
+
+
+
+
+

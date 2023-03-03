@@ -71,13 +71,26 @@ header a:visited{
 
 .square{
   border: #505050 2px solid;
-  width: calc(100% / 10);
-  height: calc(100% / 10);
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 14px;
   color: #505050;
+}
+
+.easy{
+  width: calc(100% / 10);
+  height: calc(100% / 10);
+} 
+
+.hard{
+  width: calc(100% / 9);
+  height: calc(100% / 9);
+}
+
+.crazy{
+  width: calc(100% / 7);
+  height: calc(100% / 7);
 }
 
 .square.clicked{
