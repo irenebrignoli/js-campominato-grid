@@ -52,7 +52,10 @@ main{
   border: #363636 2px solid;
   width: calc(100% / 10);
   height: calc(100% / 10);
+}
 
+.square.clicked{
+  background-color: rgb(241, 168, 99);
 }
 
 footer {
